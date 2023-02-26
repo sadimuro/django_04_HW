@@ -31,11 +31,7 @@ def get_index(request):
     else:
         return HttpResponse("Не тот метод запроса")
 
-def get_contacts(request):
-    return HttpResponse("Контакты")
 
-def get_about(request):
-    return HttpResponse("about")
 
 
 
