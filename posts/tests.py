@@ -33,9 +33,9 @@ class HelloTestCase(TestCase):
         # yes fail because 'contacts' != 'Контакты'
 
         self.assertEqual(response_get.content.decode(), expected_data)
-        self.assertEqual(response.status_code, 500)
+        self.assertEqual(response_get.status_code, 500)
     def test_get_about(self):
         response_get = self.client.get(reverse("about"))
         expected_data = "about"
         self.assertEqual(response_get.content.decode(), expected_data)
-        self.assertEqual(response.status_code, 500)
+        self.assertEqual(response_get.status_code, 500)
