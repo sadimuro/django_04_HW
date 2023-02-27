@@ -27,15 +27,15 @@ class HelloTestCase(TestCase):
         self.assertEqual(response_get.content.decode(), expected_get)
         self.assertEqual(response_post.content.decode(), expected_post)
     def test_get_contacts(self):
-        response_get = self.client.get(reverse("contacts"))
+        response_get = self.client.get(reverse("Contacts"))
 
-        expected_data = "Контакты"
-        # yes fail because 'contacts' != 'Контакты'
+        expected_data = "Contacts"
+        # yes fail because 'contacts' != 'Контакты' kaira ondop koidum
 
         self.assertEqual(response_get.content.decode(), expected_data)
         self.assertEqual(response_get.status_code, 500)
     def test_get_about(self):
-        response_get = self.client.get(reverse("about"))
-        expected_data = "about"
+        response_get = self.client.get(reverse("About"))
+        expected_data = "About"
         self.assertEqual(response_get.content.decode(), expected_data)
         self.assertEqual(response_get.status_code, 500)

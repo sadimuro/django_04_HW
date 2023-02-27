@@ -32,10 +32,10 @@ def get_index(request):
         return HttpResponse("Не тот метод запроса")
 
 def get_contacts(request):
-    return HttpResponse("contacts")
+    return HttpResponse("Contacts")
 
 def get_about(request):
-    return HttpResponse("about")
+    return HttpResponse("About")
 
 
 
