@@ -38,7 +38,7 @@ def get_index(request):
 
 
 def get_contacts(request):
-    return HttpResponse("Contacts")
+    return render(request, "posts/contacts.html", context=None)
 
 def get_about(request):
     context = {
