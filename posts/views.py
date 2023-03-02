@@ -48,6 +48,26 @@ def get_about(request):
 
     return render(request, "posts/about.html", context=None)
 
+def get_post(request):
+    context = {
+        "title": "Post_detail",
+    }
+
+    return render(request, "posts/post_detail.html", context=None)
+
+def get_update_post(request):
+    context = {
+        "title": "Post_update",
+    }
+
+    return render(request, "posts/post_update.html", context=None)
+
+def get_delete_post(request):
+    context = {
+        "title": "Post_create",
+    }
+
+    return render(request, "posts/post_create.html", context=None)
 
 
 
