@@ -25,7 +25,7 @@ def hello(request):
     return HttpResponse(body, headers=headers, status=500)
 
 def get_index(request):
-    posts = Post.objects.all()
+    posts = Post.objects.filter(status=True)
     context = {
         "title": "Main page",
         "posts": posts,
