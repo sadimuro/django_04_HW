@@ -69,7 +69,7 @@ class PostUpdateView(generic.UpdateView):
 class PostDeleteView(generic.DeleteView):
     model = Post
     success_url = reverse_lazy("index-page")
-
+    template_name = "posts/post_delete.html"
 
 class AboutView(generic.TemplateView):
     template_name = "posts/about.html"
