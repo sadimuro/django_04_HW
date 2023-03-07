@@ -1,16 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from posts.models import Post
 from django.views import generic
 from django.urls import reverse_lazy
+
+from posts.models import Post
+
+
 def hello(request):
-    #my_list = [1, 2, 3, 4]
+    # my_list = [1, 2, 3, 4]
     body = "<h1>Hello</h1>"
     # body = """
-    #  <!DOCTYPE html>
+    # <!DOCTYPE html>
     #     <html>
     #         <head>
-    #             <title>Geek Test</title>
+    #             <title>Geek TEST</title>
     #         </head>
     #         <body>
     #
@@ -20,11 +23,13 @@ def hello(request):
     #         </body>
     #     </html>
     # """
-    headers = {"name": "Alex",}
-               # "Content-Type": "application/vnd.ms-excel",
-               # "content-Disposition": "attachment; filename=file.xls"}
-
+    headers = {
+        "name": "Alex",
+    }
+    # "Content-Type": "application/vnd.ms-excel",
+    # "Content-Disposition": "attachment; filename=file.xls"}
     return HttpResponse(body, headers=headers, status=500)
+
 
 # def get_index(request):
 #     posts = Post.objects.filter(status=True)
@@ -33,23 +38,19 @@ def hello(request):
 #         "posts": posts,
 #     }
 #     return render(request, "posts/index.html", context=context)
-    # # print(request, headers)
-    # if request.method == "GET":
-    #     return HttpResponse("Главная страница")
-    # else:
-    #     return HttpResponse("Не тот метод запроса")
-
-
 
 class IndexView(generic.ListView):
     queryset = Post.objects.filter(status=True)
     context_object_name = "posts"
     # model = Post
     template_name = "posts/index.html"
+
+
 class PostDetailView(generic.DetailView):
     model = Post
     context_object_name = "post"
     template_name = "posts/post_detail.html"
+
 
 class PostCreateView(generic.CreateView):
     model = Post
@@ -57,21 +58,25 @@ class PostCreateView(generic.CreateView):
     fields = ["title", "content"]
     success_url = reverse_lazy("index-page")
 
+
 class PostUpdateView(generic.UpdateView):
     model = Post
     template_name = "posts/post_update.html"
     fields = ["title", "content"]
     success_url = reverse_lazy("index-page")
 
+
 class PostDeleteView(generic.DeleteView):
     model = Post
     success_url = reverse_lazy("index-page")
+
 
 class AboutView(generic.TemplateView):
     template_name = "posts/about.html"
     extra_context = {
         "title": "Страница о нас",
-   }
+    }
+
 
 # CRUD - Create, Retrieve, Update, Delete
 
@@ -85,14 +90,14 @@ class AboutView(generic.TemplateView):
 def get_contacts(request):
     return render(request, "posts/contacts.html", {"title": "Контакты"})
 
+
 def post_create(request):
     return render(request, "posts/post_create.html")
+
 
 def post_delete(request):
     return render(request, "posts/post_delete.html")
 
+
 def post_update(request):
     return render(request, "posts/post_update.html")
-
-
-

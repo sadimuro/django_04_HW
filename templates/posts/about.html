@@ -1,29 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<style>
-   BODY {
-    background-color: #00ffff ; /* Цвет фона веб-страницы */
-   }
 
-  </style>
-<h2 align="center">Страница о нас</h2>
- <ul class="nav justify-content-end">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url 'index-page' %}">
-        <h6>Главная</h6>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'contacts-page' %}">
-        <h6>Контакты</h6>
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">
-        <h6>Link</h6>
-    </a>
-  </li>
-  </ul>
+    <h1>Страница о нас</h1>
+
+    <a href="{% url 'index-page' %}">На главную</a>
+    <a href="{% url 'contacts-page' %}">Контакты</a>
 
 {% endblock %}
