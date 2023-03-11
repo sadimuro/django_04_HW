@@ -10,16 +10,16 @@
             <h6 class="card-subtitle mb-2 text-muted">{{ post.created }}</h6>
             <p class="card-text">{{ post.content|truncatewords:10 }}</p>
             <a href="{% url 'post-detail' post.pk %}" class="card-link">Читать полностью</a>
-{#            <a href="#" class="card-link">Another link</a>#}
+        <a href="#" class="card-link">Another link</a>#}
         </div>
     </div>
         <br>
 
     {% endfor %}
     <br>
+    <a href="{% url 'post-create' %}"><button>Создать пост</button></a><br>
 
-    <a href="{% url 'about-page' %}">Страница о нас</a>
-    <a href="{% url 'contacts-page' %}">Контакты</a><br>
+    {% include 'posts/includes/links_include.html' %}
 
-    <button type="button"><a href="{% url 'post-create' %}">Создать пост</a></button><br>
+
 {% endblock %}
